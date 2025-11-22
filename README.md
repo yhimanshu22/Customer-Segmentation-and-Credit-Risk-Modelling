@@ -83,6 +83,25 @@ This project implements two key financial analytics tasks: **Customer Segmentati
     *   **Optimal Threshold**: Calculated using **Youden's J statistic**.
     *   **Reason**: The default threshold of 0.5 is often not optimal. We found a threshold of **0.35** maximizes the balance between catching defaulters (Recall) and avoiding false alarms.
 
+## 3. Results & Conclusion
+
+### Customer Segmentation Results
+*   **Dimensionality Reduction**: PCA reduced the data to 2 principal components, explaining approximately **47%** of the total variance (Component 1: ~27%, Component 2: ~20%).
+*   **Clustering**: K-Means successfully identified **4 distinct customer segments** based on credit card usage behavior (e.g., Balance, Purchases, Cash Advance).
+*   **Visualizations**:
+    *   `images/elbow_method.png`: Shows the optimal number of clusters.
+    *   `images/customer_segments_pca.png`: Visualizes the clusters in the 2D PCA space.
+
+### Credit Risk Modelling Results
+*   **Model Performance**: The Logistic Regression model achieved an **AUC Score of 0.76**, indicating a strong ability to distinguish between defaulters and non-defaulters.
+*   **Optimal Threshold**: Using Youden's J statistic, we identified an optimal threshold of **0.35**.
+*   **Impact**:
+    *   Compared to the standard threshold of 0.5, the **0.35 threshold significantly improves the recall** for the "Default" class.
+    *   This means the model is much better at catching potential defaulters, which is the primary goal of credit risk management (minimizing financial loss).
+*   **Visualizations**:
+    *   `images/roc_curve.png`: Displays the trade-off between True Positive Rate and False Positive Rate.
+    *   `images/confusion_matrix.png`: Shows the classification performance at the optimal threshold.
+
 ## How to Run
 
 1.  **Setup Environment**:
